@@ -1,13 +1,17 @@
 {
-  "name": "covid-19ApolloServer",
-  "version": "1.0.0",
-  "description": "an apollo GraphQL server for covid-19 statistics",
-  "main": "index.js",
-  "repository": "https://github.com/ba-ddou/covid-19ApolloServer.git",
-  "author": "Badou Abdelbassite",
-  "license": "MIT",
-  "dependencies": {
-    "apollo-server": "^2.11.0",
-    "graphql": "^15.0.0"
-  }
+	"name": "covid-19ApolloServer",
+	"version": "1.0.0",
+	"description": "an apollo GraphQL server for covid-19 statistics",
+	"main": "index.js",
+	"repository": "https://github.com/ba-ddou/covid-19ApolloServer.git",
+	"author": "Badou Abdelbassite",
+	"license": "MIT",
+	"dependencies": {
+		"apollo-server": "^2.11.0",
+		"graphql": "^15.0.0",
+		"graphql-tools": "^4.0.7"
+	},
+	"scripts": {
+		"start": "node index"
+	}
 }
