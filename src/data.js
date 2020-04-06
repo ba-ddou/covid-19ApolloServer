@@ -19,3 +19,14 @@ exports.countriesData = [
 		coords: ["-63.2333", "32.21423"],
 	},
 ];
+
+exports.statsData = [
+	{
+		country: 1,
+		data: "Mock info Object",
+	},
+	{
+		country: 2,
+		data: "Mock info Object",
+	},
+];
