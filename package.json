@@ -5,5 +5,9 @@
   "main": "index.js",
   "repository": "https://github.com/ba-ddou/covid-19ApolloServer.git",
   "author": "Badou Abdelbassite",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "apollo-server": "^2.11.0",
+    "graphql": "^15.0.0"
+  }
 }
