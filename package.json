@@ -12,6 +12,7 @@
 		"graphql-tools": "^4.0.7"
 	},
 	"scripts": {
-		"start": "nodemon index"
+		"start": "nodemon index",
+		"serve": "node index"
 	}
 }
