@@ -7,6 +7,10 @@
 const { Territory } = require("./types/Territory");
 const { Date } = require("./types/Date");
 const { Stat, StatResolvers } = require("./types/Stat");
+const {
+	TerritoryStat,
+	TerritoryStatResolvers,
+} = require("./types/TerritoryStat");
 const { gql } = require("apollo-server");
 const { territoriesData, datesData, statsData } = require("./data");
 const { makeExecutableSchema } = require("graphql-tools");
@@ -15,7 +19,7 @@ const Query = gql`
 	type Query {
 		godView(date: String): [Stat]
 		info(territory: String, date: String): Stat
-		# timeSeries(territory: [String]): [TerritoryStat]
+		timeSeries(territories: [String]): [TerritoryStat]
 	}
 `;
 
@@ -38,10 +42,19 @@ var rootResolvers = {
 					element.territory == territoryId && element.date == dateId
 			);
 		},
+		timeSeries(_, args) {
+			return args.territories.map((territory) => {
+				return { name: territory };
+			});
+		},
 	},
 };
 
 module.exports = makeExecutableSchema({
-	typeDefs: [Query, Territory, Date, Stat],
-	resolvers: { ...rootResolvers, ...StatResolvers },
+	typeDefs: [Query, Territory, Date, Stat, TerritoryStat],
+	resolvers: {
+		...rootResolvers,
+		...StatResolvers,
+		...TerritoryStatResolvers,
+	},
 });
