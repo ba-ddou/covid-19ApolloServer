@@ -7,26 +7,81 @@
  *
  */
 
-exports.countriesData = [
+exports.territoriesData = [
 	{
 		id: 1,
 		name: "morocco",
-		coords: ["-33.25222", "35.2615"],
+		type: "country",
 	},
 	{
 		id: 2,
-		name: "canada",
-		coords: ["-63.2333", "32.21423"],
+		name: "global",
+		type: "global",
+	},
+];
+
+exports.datesData = [
+	{
+		id: 1,
+		date: "01/01/2020",
+	},
+	{
+		id: 2,
+		date: "02/01/2020",
+	},
+	{
+		id: 3,
+		date: "03/01/2020",
 	},
 ];
 
 exports.statsData = [
 	{
-		country: 1,
-		data: "Mock info Object",
+		date: 1,
+		territory: 1,
+		confirmed: 860,
+		recovered: 31,
+		active: 800,
+		dead: 29,
 	},
 	{
-		country: 2,
-		data: "Mock info Object",
+		date: 2,
+		territory: 1,
+		confirmed: 914,
+		recovered: 31,
+		active: 800,
+		dead: 29,
+	},
+	{
+		date: 3,
+		territory: 1,
+		confirmed: 1080,
+		recovered: 31,
+		active: 800,
+		dead: 29,
+	},
+	{
+		date: 1,
+		territory: 2,
+		confirmed: 812365,
+		recovered: 31,
+		active: 800,
+		dead: 29,
+	},
+	{
+		date: 2,
+		territory: 2,
+		confirmed: 986358,
+		recovered: 31,
+		active: 800,
+		dead: 29,
+	},
+	{
+		date: 3,
+		territory: 2,
+		confirmed: 1125321,
+		recovered: 31,
+		active: 800,
+		dead: 29,
 	},
 ];

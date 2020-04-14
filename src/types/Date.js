@@ -1,8 +1,8 @@
 const { gql } = require("apollo-server");
 
-exports.Data = gql`
-	type Data {
+exports.Date = gql`
+	type Date {
+		id: Int
 		date: String
-		cases: Int
 	}
 `;

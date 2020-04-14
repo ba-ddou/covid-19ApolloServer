@@ -1,9 +1,9 @@
 const { gql } = require("apollo-server");
 
-exports.Country = gql`
-	type Country {
+exports.Territory = gql`
+	type Territory {
 		id: Int
 		name: String
-		coords: [String]
+		type: String
 	}
 `;
