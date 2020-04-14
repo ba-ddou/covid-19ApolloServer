@@ -33,6 +33,14 @@ exports.datesData = [
 		id: 3,
 		date: "03/01/2020",
 	},
+	{
+		id: 4,
+		date: "04/01/2020",
+	},
+	{
+		id: 5,
+		date: "05/01/2020",
+	},
 ];
 
 exports.statsData = [
@@ -61,6 +69,22 @@ exports.statsData = [
 		dead: 29,
 	},
 	{
+		date: 4,
+		territory: 1,
+		confirmed: 1256,
+		recovered: 31,
+		active: 800,
+		dead: 29,
+	},
+	{
+		date: 5,
+		territory: 1,
+		confirmed: 1502,
+		recovered: 31,
+		active: 800,
+		dead: 29,
+	},
+	{
 		date: 1,
 		territory: 2,
 		confirmed: 812365,
@@ -80,6 +104,22 @@ exports.statsData = [
 		date: 3,
 		territory: 2,
 		confirmed: 1125321,
+		recovered: 31,
+		active: 800,
+		dead: 29,
+	},
+	{
+		date: 4,
+		territory: 2,
+		confirmed: 1350214,
+		recovered: 31,
+		active: 800,
+		dead: 29,
+	},
+	{
+		date: 5,
+		territory: 2,
+		confirmed: 2315020,
 		recovered: 31,
 		active: 800,
 		dead: 29,
