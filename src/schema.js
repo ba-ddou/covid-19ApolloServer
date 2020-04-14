@@ -14,7 +14,7 @@ const { makeExecutableSchema } = require("graphql-tools");
 const Query = gql`
 	type Query {
 		godView(date: String): [Stat]
-		# info(territory: String): Stat
+		info(territory: String, date: String): Stat
 		# timeSeries(territory: [String]): [TerritoryStat]
 	}
 `;
@@ -26,9 +26,18 @@ var rootResolvers = {
 				.id;
 			return statsData.filter((element) => element.date == dateId);
 		},
-		// stats() {
-		// 	return statsData;
-		// },
+		info(_, args) {
+			let territoryId = territoriesData.find(
+				(element) => element.name == args.territory
+			).id;
+			let dateId = datesData.find((element) => element.date == args.date)
+				.id;
+
+			return statsData.find(
+				(element) =>
+					element.territory == territoryId && element.date == dateId
+			);
+		},
 	},
 };
 
