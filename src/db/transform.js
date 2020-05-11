@@ -1,10 +1,11 @@
 const csv = require("csv-parser");
 const fs = require("fs");
+// let results = [];
 
-exports.getTerritoriesData = function () {
+function getTerritories() {
 	return new Promise((resolve, reject) => {
 		let results = [];
-		fs.createReadStream("./src/db/territories.csv")
+		fs.createReadStream("territories.csv")
 			.pipe(
 				csv({
 					mapHeaders: ({ header, index }) => {
@@ -20,16 +21,16 @@ exports.getTerritoriesData = function () {
 			)
 			.on("data", (data) => results.push(data))
 			.on("end", () => {
-				results = results.filter((elem) => elem.name);
+				results = results.filter((elem) => elem.id);
 				resolve(results);
 			});
 	});
-};
+}
 
-exports.getDatesData = function () {
+function getDates() {
 	return new Promise((resolve, reject) => {
 		let results = [];
-		fs.createReadStream("./src/db/dates.csv")
+		fs.createReadStream("dates.csv")
 			.pipe(
 				csv({
 					mapHeaders: ({ header, index }) => {
@@ -44,17 +45,17 @@ exports.getDatesData = function () {
 			)
 			.on("data", (data) => results.push(data))
 			.on("end", () => {
-				results = results.filter((elem) => elem.date);
+				results = results.filter((elem) => elem.id);
 				resolve(results);
 			});
 	});
-};
+}
 
-exports.getStatsData = function () {
+function getStats() {
 	return new Promise((resolve, reject) => {
 		let results = [];
 		return fs
-			.createReadStream("./src/db/stats.csv")
+			.createReadStream("stats.csv")
 			.pipe(
 				csv({
 					mapHeaders: ({ header, index }) => {
@@ -96,21 +97,11 @@ exports.getStatsData = function () {
 				resolve(results);
 			});
 	});
-};
+}
 
-// let datesData = [];
-// let territoriesData = [];
-// let statsData = [];
-// async function run() {
-// 	datesData = await getDatesData();
-// 	console.log("run -> datesData", datesData);
-// 	territoriesData = await getTerritoriesData();
-// 	console.log("run -> territoriesData", territoriesData);
-// 	statsData = await getStatsData();
-// 	console.log("run -> statsData", statsData);
-// }
+async function run() {
+	let stats = await getDates().catch((err) => console.error(err));
+	console.log(stats);
+}
 
-// run();
-// exports.datesData = datesData;
-// exports.territoriesData = territoriesData;
-// exports.statsData = statsData;
+run();

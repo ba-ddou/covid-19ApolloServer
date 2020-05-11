@@ -1,6 +1,15 @@
 const { gql } = require("apollo-server");
 const { Stat } = require("./Stat");
-const { territoriesData, statsData } = require("../data");
+const { getTerritoriesData, getStatsData } = require("../data");
+
+var territoriesData = false;
+var statsData = false;
+
+async function loadData() {
+	territoriesData = await getTerritoriesData();
+	statsData = await getStatsData();
+}
+loadData();
 
 exports.TerritoryStat = gql`
 	type TerritoryStat {

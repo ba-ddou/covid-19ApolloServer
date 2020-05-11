@@ -1,5 +1,14 @@
 const { gql } = require("apollo-server");
-const { territoriesData, datesData } = require("../data");
+const { getTerritoriesData, getDatesData } = require("../data");
+
+var territoriesData = false;
+var datesData = false;
+
+async function loadData() {
+	territoriesData = await getTerritoriesData();
+	datesData = await getDatesData();
+}
+loadData();
 
 exports.Stat = gql`
 	type Stat {
@@ -18,9 +27,12 @@ exports.StatResolvers = {
 			return datesData.find((element) => parent.date == element.id).date;
 		},
 		territory(parent) {
+			// console.log(territoriesData);
 			return territoriesData.find(
 				(element) => parent.territory == element.id
 			).name;
+			// if (territory) return territory.name;
+			// else return parent.territory;
 		},
 	},
 };

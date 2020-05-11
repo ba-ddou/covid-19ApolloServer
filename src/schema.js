@@ -12,8 +12,19 @@ const {
 	TerritoryStatResolvers,
 } = require("./types/TerritoryStat");
 const { gql } = require("apollo-server");
-const { territoriesData, datesData, statsData } = require("./data");
+const { getTerritoriesData, getDatesData, getStatsData } = require("./data");
 const { makeExecutableSchema } = require("graphql-tools");
+
+var territoriesData = false;
+var datesData = false;
+var statsData = false;
+
+async function loadData() {
+	territoriesData = await getTerritoriesData();
+	datesData = await getDatesData();
+	statsData = await getStatsData();
+}
+loadData();
 
 const Query = gql`
 	type Query {
@@ -26,7 +37,7 @@ const Query = gql`
 var rootResolvers = {
 	Query: {
 		godView(_, args) {
-			console.log(args.date);
+			// console.log(datesData);
 			let dateId = datesData.find((element) => element.date == args.date)
 				.id;
 			return statsData.filter((element) => element.date == dateId);
