@@ -23,23 +23,23 @@ exports.territoriesData = [
 exports.datesData = [
 	{
 		id: 1,
-		date: "01/01/2020",
+		date: "2020-01-01",
 	},
 	{
 		id: 2,
-		date: "02/01/2020",
+		date: "2020-01-02",
 	},
 	{
 		id: 3,
-		date: "03/01/2020",
+		date: "2020-01-03",
 	},
 	{
 		id: 4,
-		date: "04/01/2020",
+		date: "2020-01-04",
 	},
 	{
 		id: 5,
-		date: "05/01/2020",
+		date: "2020-01-05",
 	},
 ];
 

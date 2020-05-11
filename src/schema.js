@@ -26,6 +26,7 @@ const Query = gql`
 var rootResolvers = {
 	Query: {
 		godView(_, args) {
+			console.log(args.date);
 			let dateId = datesData.find((element) => element.date == args.date)
 				.id;
 			return statsData.filter((element) => element.date == dateId);
