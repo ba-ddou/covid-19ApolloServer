@@ -15,9 +15,12 @@ exports.Stat = gql`
 		date: String
 		territory: String
 		confirmed: Int
+		newConfirmed: Int
 		recovered: Int
-		active: Int
+		newRecovered: Int
 		dead: Int
+		newDead: Int
+		active: Int
 	}
 `;
 
