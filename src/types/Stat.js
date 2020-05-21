@@ -21,6 +21,7 @@ exports.Stat = gql`
 		dead: Int
 		newDead: Int
 		active: Int
+		newActive: Int
 	}
 `;
 
