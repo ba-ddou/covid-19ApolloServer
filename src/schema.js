@@ -31,6 +31,7 @@ const Query = gql`
 		godView(date: String): [Stat]
 		info(territory: String, date: String): Stat
 		timeSeries(territories: [String]): [TerritoryStat]
+		date: String
 	}
 `;
 
@@ -59,6 +60,9 @@ var rootResolvers = {
 				return { name: territory };
 			});
 		},
+		date(){
+			return datesData[datesData.length-1].date;
+		}
 	},
 };
 
